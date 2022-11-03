@@ -18,6 +18,7 @@ public class Collectable : MonoBehaviour
         if(other.gameObject.tag == "AiAgent")
         {
             m_Renderer.enabled = false;
+            // Maybe use the FindNextRelic function here, instead of doing a distance check?
         }
     }
 }
