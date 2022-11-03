@@ -21,6 +21,7 @@ public class AiTest : MonoBehaviour
 
     private void Start()
     {
+        _collectableDestination = -1;
         GoToNextCollectable();
     }
 
@@ -31,39 +32,20 @@ public class AiTest : MonoBehaviour
     }
 
     void GoToNextCollectable()
-    { 
-        //Switch statement?
-        if (_collectableDestination == 0)
+    {
+        if (_collectableDestination <  collectables.Length - 1)
         {
-        _aiOne.destination = collectables[_collectableDestination].position;
-        _collectableDestination = (_collectableDestination + 1); // _collectableDestination++ (Short hand)
-            // Maybe do a distance check, BEFORE doing the +1?
-            Debug.Log("Finding 1st Relic");
-        }
-        else if(_collectableDestination == 1)
-        {
+            _collectableDestination++; // _collectableDestination++ (Short hand)
             _aiOne.destination = collectables[_collectableDestination].position;
-            _collectableDestination = (_collectableDestination + 1);
-            Debug.Log("finding 2nd Relic");
         }
-        else if(_collectableDestination == 2)
-        {
-            _aiOne.destination = collectables[_collectableDestination].position;
-            _collectableDestination = (_collectableDestination + 1);
-            Debug.Log("finding 3rd Relic");
-        }
-        else
-        {
-            return;
-        }
-        // THE COUNT IS FOR ALL SCRIPTS!!! THATS WHY??
     }
 
 
     void FindRelics()
     {
         // Distance might be for the path only, instead of the actual object. Vector3.Distance 
-        if ( _aiOne.remainingDistance < 0.5f)
+        if ( _aiOne.remainingDistance < 0.5f 
+            && Vector3.Distance(_aiOne.transform.position, collectables[_collectableDestination].position) < 0.5f)
         {
             GoToNextCollectable();
         }
