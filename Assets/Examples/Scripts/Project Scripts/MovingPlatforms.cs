@@ -16,15 +16,27 @@ public class MovingPlatforms : MonoBehaviour
     {
         if (transform.position == waypoints[target].position)
         {
-            if (target == waypoints.Count - 1)
-            {
-                target = 0;
-            }
-            else
-            {
-                target += 1;
-            }
+            StartCoroutine(MovingPlatform());
+
         }
 
     }
+    IEnumerator MovingPlatform()
+    {
+
+        if (target == waypoints.Count - 1)
+        {
+            yield return new WaitForSeconds(5f);
+            target = 0;
+            
+        }
+        else
+        {
+            yield return new WaitForSeconds(5f);
+            target = 1;
+
+        }
+        
+    }
+
 }
