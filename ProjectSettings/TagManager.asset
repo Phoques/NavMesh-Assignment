@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AiAgent
   - Collectable
+  - Mud
   layers:
   - Default
   - TransparentFX
