@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class VictoryDoor : MonoBehaviour
 {
+    //references for the door object
     public GameObject victoryDoor;
+    //Reference for a waypoint the door moves to
     public Transform openSesame;
+
+
     public float moveSpeed;
     bool _openSesame = false;
 
     private void Update()
-    {
+    {//If this bool is triggered as true (As the agent now has a key)
         if (_openSesame)
         {
+            //Make the door move to the waypoint so the Agent can move towards the end goal.
             OpenDoor();
         }
     }
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "AiAgent")
-        {
-            _openSesame = true;
-        }
-    }*/
+    
 
     void OpenDoor()
     {

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+
+    /// <summary>
+    /// See 'Keys' Script, as it works in the exact same way
+    /// </summary>
     MeshRenderer m_Renderer;
     public GameObject collectable;
 
