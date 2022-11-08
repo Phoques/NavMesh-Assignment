@@ -223,6 +223,21 @@ public class AiMovement : MonoBehaviour
 
     }
     #endregion
+    #region Known Bugs
+    // Consistant bugs
+
+    // Ai Agents lock up and slow down initially in game play, unknown as to why, when only a single agent is on the navmesh it works fine,
+    // as soon as other agents are introduced, this behaviour happens.
+
+    // Rare bugs
+    
+    // AiAgent (3) will sometimes miss the hitbox of the key, causing it to stay on screen, yet it still progresses.
+    // Made hitbox larger but still occasionally misses somehow.
+    
+    // AiAgents pathing recalculation can be slow and rarely will cause an agent to enter a pathing death spiral, unable to find its path even though
+    // there are clear pathways.
+
+    #endregion
 
 
 }
